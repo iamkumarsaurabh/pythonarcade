@@ -1,0 +1,79 @@
+/* GLOBAL STYLES */
+body {
+    background: #0b0d17;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* GLASS CARD */
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 { margin-bottom: 20px; color: #00a8ff; text-transform: uppercase; letter-spacing: 2px; }
+h2 { font-size: 1.5rem; margin: 10px 0; }
+
+/* BUTTONS */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #00a8ff, #0077ff);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 0 15px #00a8ff; }
+
+/* RPS BUTTONS */
+.rps-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+.rps-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00a8ff;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #00a8ff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.rps-btn:hover { background: #00a8ff; color: white; transform: scale(1.1); }
+
+/* INPUT FIELDS */
+input[type="number"] {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #00a8ff;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1.2rem;
+    width: 60%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+.home-link { margin-top: 30px; display: block; color: #888; text-decoration: none; }
+.home-link:hover { color: white; }
