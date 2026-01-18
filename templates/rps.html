@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RPS Battle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>RPS Protocol</h1>
+
+        {% if result %}
+        <div class="result-box" style="border: 1px solid {{ result.color }};">
+            <h2 style="color: {{ result.color }};">{{ result.status }}</h2>
+            <div style="display: flex; justify-content: space-around; font-size: 1.2rem;">
+                <div>
+                    <p>You</p>
+                    <i class="fas {{ result.user_icon }} fa-2x"></i>
+                </div>
+                <div>
+                    <p>Jarvis</p>
+                    <i class="fas {{ result.comp_icon }} fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <a href="/rps" class="btn" style="background: grey; font-size: 0.8rem;">Play Again</a>
+        {% else %}
+        <p>Choose your weapon:</p>
+        <form method="POST" class="rps-grid">
+            <button type="submit" name="choice" value="1" class="rps-btn"><i class="far fa-hand-rock"></i></button>
+            <button type="submit" name="choice" value="2" class="rps-btn"><i class="far fa-hand-paper"></i></button>
+            <button type="submit" name="choice" value="3" class="rps-btn"><i class="far fa-hand-scissors"></i></button>
+        </form>
+        {% endif %}
+
+        <a href="/" class="home-link">← Back to Dashboard</a>
+    </div>
+</body>
+
+</html>

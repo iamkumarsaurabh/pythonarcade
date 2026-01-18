@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfect Guess</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-bullseye"></i> Target Lock</h1>
+        <p>Jarvis has selected a number between 1 and 100.</p>
+        
+        {% if msg %}
+            <div class="result-box">
+                <h3 style="color: {{ color }}">{{ msg }}</h3>
+            </div>
+        {% endif %}
+
+        {% if color == "#00ff88" %}
+            <a href="/guess?action=reset" class="btn">Start New Game</a>
+        {% else %}
+            <form method="POST" style="margin-top: 20px;">
+                <input type="number" name="guess" placeholder="Enter number..." required autofocus>
+                <br>
+                <button type="submit" class="btn">Guess</button>
+                <a href="/guess?action=reset" class="btn" style="background: #ff4d4d;">Reset</a>
+            </form>
+        {% endif %}
+
+        <a href="/" class="home-link">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
