@@ -8,53 +8,76 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 10px; /* मोबाइल पर किनारों से थोड़ा गैप */
 }
 
 /* GLASS CARD */
 .container {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    padding: 40px;
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 30px 20px; /* मोबाइल पर पैडिंग थोड़ी कम */
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     text-align: center;
-    width: 90%;
+    width: 95%; /* मोबाइल पर ज्यादा चौड़ाई */
     max-width: 500px;
+    box-sizing: border-box; /* पैडिंग को चौड़ाई में शामिल करें */
 }
 
-h1 { margin-bottom: 20px; color: #00a8ff; text-transform: uppercase; letter-spacing: 2px; }
-h2 { font-size: 1.5rem; margin: 10px 0; }
+h1 { 
+    margin-bottom: 20px; 
+    color: #00a8ff; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    font-size: 1.8rem; /* मोबाइल के लिए फॉन्ट साइज एडजस्ट */
+}
+
+h2 { font-size: 1.4rem; margin: 10px 0; }
 
 /* BUTTONS */
 .btn {
-    padding: 12px 25px;
+    padding: 14px 28px; /* टच के लिए थोड़े बड़े बटन */
     border: none;
     border-radius: 50px;
     background: linear-gradient(45deg, #00a8ff, #0077ff);
     color: white;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
     text-decoration: none;
     display: inline-block;
     margin: 10px;
+    touch-action: manipulation; /* डबल-टैप ज़ूम रोके */
 }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 0 15px #00a8ff; }
 
 /* RPS BUTTONS */
-.rps-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+.rps-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 20px; 
+    flex-wrap: wrap; /* छोटी स्क्रीन पर बटन नीचे आ सकें */
+}
+
 .rps-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #00a8ff;
-    width: 80px; height: 80px;
+    width: 70px; height: 70px; /* थोड़ा छोटा साइज ताकि छोटी स्क्रीन पर फिट हो */
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #00a8ff;
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .rps-btn:hover { background: #00a8ff; color: white; transform: scale(1.1); }
+.rps-btn:active { transform: scale(0.95); } /* क्लिक का अहसास */
 
 /* INPUT FIELDS */
 input[type="number"] {
@@ -64,9 +87,10 @@ input[type="number"] {
     background: rgba(0, 0, 0, 0.3);
     color: white;
     font-size: 1.2rem;
-    width: 60%;
+    width: 80%; /* मोबाइल पर चौड़ाई बढ़ाई */
     text-align: center;
     margin-bottom: 20px;
+    outline: none;
 }
 
 .result-box {
@@ -75,5 +99,20 @@ input[type="number"] {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
-.home-link { margin-top: 30px; display: block; color: #888; text-decoration: none; }
+
+.home-link { 
+    margin-top: 30px; 
+    display: block; 
+    color: #888; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 10px; /* लिंक पर क्लिक करना आसान हो */
+}
 .home-link:hover { color: white; }
+
+/* MEDIA QUERY FOR SMALL PHONES */
+@media (max-width: 400px) {
+    h1 { font-size: 1.5rem; }
+    .rps-btn { width: 60px; height: 60px; font-size: 1.5rem; }
+    .btn { width: 100%; margin: 10px 0; box-sizing: border-box; } /* बटन फुल विड्थ */
+}
